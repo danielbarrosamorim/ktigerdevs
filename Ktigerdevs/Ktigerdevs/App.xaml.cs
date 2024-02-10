@@ -10,7 +10,9 @@ namespace Ktigerdevs
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new AppShell();
+
+           // MainPage = new MainPage();
         }
 
         protected override void OnStart ()
