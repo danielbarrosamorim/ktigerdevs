@@ -7,10 +7,29 @@
     BackgroundColor="White">
     <ContentPage.Content>
        <StackLayout>
-
-           <Label Text="Let the game begin" />
-
-       </StackLayout> 
+           <Label Text="Characters" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Results}"
+                            SelectionMode="Single"
+                             SelectionChangedCommand="{Binding GoToDetailsPageCommand}"
+                            SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1"
+                                    Text="{Binding name}"
+                                   TextColor="Black"
+                                    FontAttributes="Bold" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout> 
     </ContentPage.Content>
 </ContentPage>
 

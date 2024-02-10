@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Ktigerdevs.Views;
 using Xamarin.Forms;
 
 namespace Ktigerdevs
@@ -10,7 +10,9 @@ namespace Ktigerdevs
 		public AppShell ()
 		{
 			InitializeComponent ();
-		}
+            Routing.RegisterRoute("CharacterDetailsPage", typeof(CharacterDetailsPage));
+            Routing.RegisterRoute("MainFeedPage", typeof(MainFeedPage));
+        }
 	}
 }
 

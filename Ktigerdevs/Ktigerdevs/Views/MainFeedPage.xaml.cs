@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Ktigerdevs.ViewModels;
 using Xamarin.Forms;
 
 namespace Ktigerdevs.Views
@@ -10,7 +10,8 @@ namespace Ktigerdevs.Views
 		public MainFeedPage ()
 		{
 			InitializeComponent ();
-		}
+			BindingContext = new MainFeedViewModel();
+        }
 	}
 }
 
