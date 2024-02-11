@@ -9,21 +9,33 @@
     Shell.FlyoutBehavior="Disabled"
     BackgroundColor="White">
     <ContentPage.Content>
-       <StackLayout Padding="20,0,0,20">
-           <Label Text="Libraries (Nuget packages) " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
-           <Label Text="1 - Community Toolkit MVVM " HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="2 - Microsoft App Center Analytics " HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="3 - Microsoft App Center Crashs " HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="4 - Newtonsoft Json " HorizontalTextAlignment="Start" FontSize="Large" />
+        <ScrollView>
+           <StackLayout Padding="20,0,0,20">
+               <Label Text="Libraries (Nuget packages) " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+               <Label Text="1 - Community Toolkit MVVM " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="2 - Microsoft App Center Analytics " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="3 - Microsoft App Center Crashs " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="4 - Newtonsoft Json " HorizontalTextAlignment="Start" FontSize="Large" />
 
-           <Label Margin="0,30,0,0" Text="Next steps for a production app: " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+               <Label Margin="0,30,0,0" Text="Suggestions for next steps: " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
 
-           <Label Text="1 - Load all the characters using pagination " HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="1 - Load all the characters using pagination " HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="2 - Check for connectivity to avoid error on loading API" HorizontalTextAlignment="Start" FontSize="Large" />
-           <Label Text="3 - Check for exceptions" HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="1 - Load all the characters using pagination " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="2 - Check internet connectivity " HorizontalTextAlignment="Start" FontSize="Large" />     
+               <Label Text="3 - Add a loading indication" HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="4 - Add a search component" HorizontalTextAlignment="Start" FontSize="Large" />
 
-        </StackLayout> 
+               <Label Margin="0,30,0,0" Text="Tested on: " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+
+               <Label Text="1 - iOS - iPhone 15 Pro Max " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="2 - Android - Samsung SM J415G" HorizontalTextAlignment="Start" FontSize="Large" />
+
+               <Label Margin="0,30,0,0" Text="References" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+
+               <Label Text="1 - https://learn.microsoft.com/en-us/xamarin/xamarin-forms/platform " HorizontalTextAlignment="Start" FontSize="Large" />
+               <Label Text="2 - https://www.youtube.com/@JamesMontemagno" HorizontalTextAlignment="Start" FontSize="Large" />
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
 
