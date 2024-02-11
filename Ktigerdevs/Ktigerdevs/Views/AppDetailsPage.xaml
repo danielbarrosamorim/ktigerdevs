@@ -2,49 +2,27 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   x:Class="Ktigerdevs.Views.AppDetailsPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="True"
+    Title="App Details"
+    x:Class="Ktigerdevs.Views.AppDetailsPage"
     Shell.FlyoutBehavior="Disabled"
     BackgroundColor="White">
     <ContentPage.Content>
-       <StackLayout>
-           <Label Text="Characters" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
-            <CollectionView ItemsSource="{Binding Result}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Column="1"
-                                    Text="{Binding name}"
-                                   TextColor="Black"
-                                    FontAttributes="Bold" />
-                            <Label Grid.Column="1"
-                                    Text="{Binding status}"
-                                   TextColor="Black"
-                                    FontAttributes="Bold" />
-                            <Label Grid.Column="1"
-                                    Text="{Binding species}"
-                                   TextColor="Black"
-                                    FontAttributes="Bold" />
-                            <Label Grid.Column="1"
-                                    Text="{Binding type}"
-                                   TextColor="Black"
-                                    FontAttributes="Bold" />
-                            <Label Grid.Column="1"
-                                    Text="{Binding gender}"
-                                   TextColor="Black"
-                                    FontAttributes="Bold" />
-                            <Image Grid.Column="1"
-                                    Source="{Binding image}"
-                                   />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+       <StackLayout Padding="20,0,0,20">
+           <Label Text="Libraries (Nuget packages) " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+           <Label Text="1 - Community Toolkit MVVM " HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="2 - Microsoft App Center Analytics " HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="3 - Microsoft App Center Crashs " HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="4 - Newtonsoft Json " HorizontalTextAlignment="Start" FontSize="Large" />
+
+           <Label Margin="0,30,0,0" Text="Next steps for a production app: " HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+
+           <Label Text="1 - Load all the characters using pagination " HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="1 - Load all the characters using pagination " HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="2 - Check for connectivity to avoid error on loading API" HorizontalTextAlignment="Start" FontSize="Large" />
+           <Label Text="3 - Check for exceptions" HorizontalTextAlignment="Start" FontSize="Large" />
+
         </StackLayout> 
     </ContentPage.Content>
 </ContentPage>

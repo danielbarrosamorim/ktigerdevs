@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Ktigerdevs.Models;
@@ -16,11 +15,12 @@ namespace Ktigerdevs.Services
             _httpClient = new HttpClient();
         }
 
-        public async Task<Character> GetCharacterAsync(string url)
+        public async Task<Character> GetCharacterAsync()
         {
             try
             {
-                var response = await _httpClient.GetAsync(url);
+                string urlCharacter = "https://rickandmortyapi.com/api/character";
+                var response = await _httpClient.GetAsync(urlCharacter);
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
@@ -30,10 +30,32 @@ namespace Ktigerdevs.Services
             catch (Exception ex)
             {
                 // Handle exceptions
+                Console.Write($"API Service - GetCharacterAsync error : {ex}");
             }
 
             return null;
         }
+
+        public async Task<Episode> GetEpisodeAsync(string urlEpisode)
+        {
+            try
+            {
+                //string urlEpisode = "https://rickandmortyapi.com/api/episode";
+                var response = await _httpClient.GetAsync(urlEpisode);
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<Episode>(json);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                Console.Write($"API Service - GetEpisodeAsync error : {ex}");
+            }
+            return null;
+        }
+
     }
 }
 

@@ -1,16 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 using Ktigerdevs.ViewModels;
 using Xamarin.Forms;
 
 namespace Ktigerdevs.Views
-{	
-	public partial class MainFeedPage : ContentPage
+{
+    public partial class MainFeedPage : ContentPage
 	{	
 		public MainFeedPage ()
 		{
 			InitializeComponent ();
-			BindingContext = new MainFeedViewModel();
+			MainFeedViewModel vm; 
+			BindingContext = vm =  new MainFeedViewModel();
+			Task.Run(async () => await vm.LoadCharactersAsync());
+
         }
 	}
 }

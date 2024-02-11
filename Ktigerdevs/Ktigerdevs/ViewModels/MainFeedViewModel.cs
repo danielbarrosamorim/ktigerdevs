@@ -1,15 +1,14 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Ktigerdevs.Models;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Ktigerdevs.Services;
-using CommunityToolkit.Mvvm.Input;
-using Xamarin.Forms;
-using System.Collections.Generic;
-using Ktigerdevs.Views;
 using System.Linq;
+using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Ktigerdevs.Models;
+using Ktigerdevs.Services;
+using Ktigerdevs.Views;
 using Newtonsoft.Json;
-using System;
+using Xamarin.Forms;
 
 namespace Ktigerdevs.ViewModels
 {
@@ -22,37 +21,37 @@ namespace Ktigerdevs.ViewModels
         [ObservableProperty]
         private ObservableCollection<Result> results;
 
-        private APIService _characterService;
+        private APIService _apiService;
 
         public MainFeedViewModel()
         {
-            _characterService = new APIService();
+            _apiService = new APIService();
             Characters = new ObservableCollection<Character>();
-
             Results = new ObservableCollection<Result>();
-            LoadCharacters();
+          // LoadCharacters();
         }
 
-        private async void LoadCharacters()
+        public async Task LoadCharactersAsync()
         {
-            string url = "https://rickandmortyapi.com/api/character";
-            var Character = await _characterService.GetCharacterAsync(url);
-
-            Results = new ObservableCollection<Result>(Character.results);
-            //foreach (var character in characters)
-            //{
-            //    Characters.Add(character);
-            //}
+            
+            var resultAPIService = await _apiService.GetCharacterAsync();
+            var resultOrdered = resultAPIService.results.OrderBy(n => n.name);
+            Results = new ObservableCollection<Result>(resultOrdered);
         }
 
         [RelayCommand]
-        private async Task GoToDetailsPage(Result result)
+        private async Task GoToCharacterDetailsPage(Result result)
         {
             var jsonResult = JsonConvert.SerializeObject(result);
             var route = $"{nameof(CharacterDetailsPage)}?JsonResult={Uri.EscapeDataString(jsonResult)}";
             await Shell.Current.GoToAsync(route);
         }
 
-
+        [RelayCommand]
+        private async Task GoToAppDetailsPage()
+        {
+            var route = $"{nameof(AppDetailsPage)}";
+            await Shell.Current.GoToAsync(route);
+        }
     }
 }

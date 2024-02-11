@@ -2,12 +2,15 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   x:Class="Ktigerdevs.Views.CharacterDetailsPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    x:Class="Ktigerdevs.Views.CharacterDetailsPage"
     Shell.FlyoutBehavior="Disabled"
     Title="Character - Details"
+   
     BackgroundColor="White">
     <ContentPage.Content>
-       <StackLayout>
+       <StackLayout  Padding="20,0,20,0">
 
            <StackLayout Orientation="Horizontal">
                 <Label Text="Name: "
@@ -61,6 +64,31 @@
                        HeightRequest="300" WidthRequest="300"
                        Source="{Binding Result.image}"
                         />
+
+             <Label 
+                        Text="List of Episodes"
+                        TextColor="Black"
+                        FontSize="30"
+                        FontAttributes="Bold" />
+
+           <CollectionView ItemsSource="{Binding Episodes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                             <Label 
+                                    FontSize="14"
+                                    Text="{Binding episode, StringFormat='{0}:'}"
+                                    TextColor="Black"
+                                    FontAttributes="Bold" />
+                            <Label 
+                                   FontSize="14"
+                                    Text="{Binding name}"
+                                   TextColor="Black"
+                                    FontAttributes="Bold" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout> 
     </ContentPage.Content>
 </ContentPage>

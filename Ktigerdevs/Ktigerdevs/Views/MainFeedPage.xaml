@@ -2,15 +2,19 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
     x:Class="Ktigerdevs.Views.MainFeedPage"
     Shell.FlyoutBehavior="Disabled"
     BackgroundColor="White">
     <ContentPage.Content>
        <StackLayout>
-           <Label Text="Characters" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold"/>
+           <Label Text="Rick and Morty Characters" HorizontalTextAlignment="Center" TextColor="Black"
+                        FontSize="30"
+                        FontAttributes="Bold" />
             <CollectionView ItemsSource="{Binding Results}"
                             SelectionMode="Single"
-                             SelectionChangedCommand="{Binding GoToDetailsPageCommand}"
+                             SelectionChangedCommand="{Binding GoToCharacterDetailsPageCommand}"
                             SelectionChangedCommandParameter="{Binding SelectedItem, Source={RelativeSource Self}}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -29,6 +33,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+           <Button Text="App Details"  TextColor="OrangeRed"
+                        FontSize="20" Command="{Binding GoToAppDetailsPageCommand}"
+                        FontAttributes="Bold" />
         </StackLayout> 
     </ContentPage.Content>
 </ContentPage>
